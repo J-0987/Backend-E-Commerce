@@ -45,14 +45,38 @@ catch (err) {
 });
 // create new product
 router.post('/', async (req, res) => {
-try {
-  const data = await Product.create(req.body);
-  res.json(data);
-}
-catch (err) {
-  res.status(500).json(err);
-}
+  try {
+    const product = await Product.create({
+      product_name: req.body.product_name,
+      price: req.body.price,
+      stock: req.body.stock,
+    });
+
+    if (req.body.tagIds.length) {
+      const productTagIdArr = req.body.tagIds.map((tag_id) => {
+        return {
+          product_id: product.id,
+          tag_id,
+        };
+      });
+      await ProductTag.bulkCreate(productTagIdArr);
+    }
+
+    res.status(200).json(product);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
+
+// router.post('/', async (req, res) => {
+// try {
+//   const data = await Product.bulkCreate(req.body);
+//   res.json(data);
+// }
+// catch (err) {
+//   res.status(500).json(err);
+// }
+// });
 
   /* req.body should look like this...
     {

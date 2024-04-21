@@ -2,11 +2,12 @@
 [![JavaScript](https://img.shields.io/badge/-JavaScript-yellow)](https://www.javascript.com/)
 [![Node.js](https://img.shields.io/badge/-Node.js-green)](https://nodejs.org/)
 ![express](https://img.shields.io/badge/Express.js-purple)
-![render](https://img.shields.io/badge/postgresql-blue)
+![postgresql](https://img.shields.io/badge/Postgresql-blue)
+
 
 # E-Commerce Back End
 
-## Description
+
 This project provides a back end solution for e-commerce websites, catering specifically to managers at internet retail companies. It leverages the latest technologies to ensure competitiveness in the market.
 
 ## Features
@@ -31,7 +32,16 @@ Once the installation is complete, you can use the E-Commerce Back End to:
 - Successfully create, update, and delete data in the database using API POST, PUT, and DELETE routes in Insomnia.
 
 ## Visuals
-(No visuals provided)
+
+### Backend view on Insonmia
+![insomnia](image.png)
+
+
+![Delete by ID](image-1.png)
+
+
+
+![alt text](image-2.png)
 
 ## Contributing
 
