@@ -33,15 +33,40 @@ Once the installation is complete, you can use the E-Commerce Back End to:
 
 ## Visuals
 
-### Backend view on Insonmia
-![insomnia](image.png)
+### Backend views on Insonmia
 
+**View all products (GET)**
+
+
+![get-all](image.png)
+
+
+**Create new product**
+
+
+![alt text](image-2.png)
+
+
+**Delete product by ID**
 
 ![Delete by ID](image-1.png)
 
 
 
+**Update product by ID**
+
+
+![Update](image-3.png)
+
+
+**Create new product**
+
+
 ![alt text](image-2.png)
+
+
+
+
 
 ## Contributing
 

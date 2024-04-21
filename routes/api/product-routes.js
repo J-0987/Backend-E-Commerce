@@ -3,10 +3,9 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // The `/api/products` endpoint
 
-// get all products
+// * Get all products
 router.get('/', (req, res) => {
   // find all products
-  // be sure to include its associated Category and Tag data
  Product.findAll({
     include: [
       Category,
@@ -23,7 +22,7 @@ router.get('/', (req, res) => {
   });
 });
 
-// get one product
+// * Get product by id
 router.get('/:id', async (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
@@ -43,7 +42,9 @@ catch (err) {
   res.status(500).json(err);
 }
 });
-// create new product
+
+
+// * Create a new product
 router.post('/', async (req, res) => {
   try {
     const product = await Product.create({
@@ -68,15 +69,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// router.post('/', async (req, res) => {
-// try {
-//   const data = await Product.bulkCreate(req.body);
-//   res.json(data);
-// }
-// catch (err) {
-//   res.status(500).json(err);
-// }
-// });
+
 
   /* req.body should look like this...
     {
@@ -89,7 +82,7 @@ router.post('/', async (req, res) => {
 
   
 
-// update product
+// * Update product data
 router.put('/:id', (req, res) => {
   // update product data
   Product.update(req.body, {
@@ -133,6 +126,8 @@ router.put('/:id', (req, res) => {
       res.status(400).json(err);
     });
 });
+
+// * Delete one product by its `id` value
 
 router.delete('/:id', async (req, res) => {
 try {
