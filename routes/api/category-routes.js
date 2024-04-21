@@ -1,12 +1,9 @@
 const router = require('express').Router();
 const { Category, Product } = require('../../models');
 
-// The `/api/categories` endpoint
-
+// * Get all categories
 router.get('/', async (req, res) => {
   try {
-    // find all categories
-    // be sure to include its associated Products
     const data = await Category.findAll({
       include: [Product]
     });
@@ -16,9 +13,8 @@ router.get('/', async (req, res) => {
   }
 });
 
+// * Get a category by ID
 router.get('/:id', async (req, res) => {
-  // find one category by its `id` value
-  // be sure to include its associated Products
   try {
     const data = await Category.findByPk(req.params.id, {
       include: [Product]
@@ -30,8 +26,8 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// * Create a new category
 router.post('/', async (req, res) => {
-  // create a new category
   try {
     const data = await Category.create(req.body);
     res.json(data);
@@ -39,25 +35,24 @@ router.post('/', async (req, res) => {
   catch (err) {
     res.status(500).json(err);
   }
-
 });
 
+// * Update a category by ID
 router.put('/:id', async (req, res) => {
-  // update a category by its `id` value
-try {
-  const data = await Category.update(req.body, {
-    where: {
-      id: req.params.id
-    }
-  });
-  res.json(data);
-} catch (err) { 
-  res.status(500).json(err);
-}
+  try {
+    const data = await Category.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    });
+    res.json(data);
+  } catch (err) { 
+    res.status(500).json(err);
+  }
 }); 
 
+// * Delete a category by ID
 router.delete('/:id', async (req, res) => {
-  // delete a category by its `id` value
   try {
     const data = await Category.destroy({
       where: {
